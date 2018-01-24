@@ -22,7 +22,17 @@ export default class extends Component {
             case "mileage":
                 this.setState({ mileage: Number(e.target.value)})
                 break
+            default:
+                throw Error("Invalid ID")
         }
+    }
+
+    clickHandler = () => {
+        //TODO: Post to API
+        console.log("Should post: ", this.state)
+    }
+
+    componentDidUpdate() {
         console.log(this.state)
     }
     render() {
@@ -40,7 +50,7 @@ export default class extends Component {
                 <div>
                     Mileage: <input id="mileage" type="text" onChange={this.onChangeHandler} />
                 </div>
-                <button>Le Create</button>
+                <button onClick={this.clickHandler}>Le Create</button>
             </div>
         )
     }
