@@ -14,13 +14,13 @@ server.route({
         return { cars: [{
             make: "Toyata",
             model: "Tacoma",
-            year: "2009",
+            year: 2009,
             mileage: 100000
         },{
             make: "Jeep",
             model: "JKU",
-            year: "2015",
-            mileage: "25088"
+            year: 2015,
+            mileage: 25088
         }]
 
         }
@@ -30,6 +30,16 @@ server.route({
             origin: ['*'],
             additionalHeaders: ['cache-controle', 'x-requested-with']
         }
+    }
+})
+
+server.route({
+    method: 'POST',
+    path: '/cars',
+    handler: (request, h) => {
+        console.log(request.payload)
+        return h.response('success')
+
     }
 })
 
